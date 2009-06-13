@@ -3,8 +3,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :breweries
   map.resources :stores
   
-  map.root :controller => "home"
-  map.search "search", :controller => "search"
+  map.root :controller => 'home'
+  map.search 'search', :controller => 'search'
+  map.users 'users/:action', :controller => 'users'
   
   # The priority is based upon order of creation: first created -> highest priority.
 
