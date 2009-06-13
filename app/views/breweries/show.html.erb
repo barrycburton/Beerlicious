@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @brewery.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @brewery.address %>
+</p>
+
+<p>
+  <% if @beers.size > 0 then %>
+    <b>Beers:</b>
+  
+    <table>
+
+      <%= render :partial => "beers/beer_head" %>
+    
+      <%= render :partial => @beers %>
+
+    </table>
+  <% else %>
+    <b>No Beers</b>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
+<%= link_to 'Back', breweries_path %>

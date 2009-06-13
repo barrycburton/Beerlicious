@@ -1,0 +1,8 @@
+<tr>
+  <td><%=link_to h(beer.name), beer %></td>
+  <td><%=link_to h(beer.brewery.name), beer.brewery %></td>
+  <td><%=h beer.style %></td>
+  <td><%=h beer.abv %></td>
+  <td><%=h beer.info_url %></td>
+  <td><%=h beer.containers.size %></td>
+</tr>

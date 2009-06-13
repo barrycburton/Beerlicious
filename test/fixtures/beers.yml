@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  info_url: MyString
+  price: 9.99
+  stores: MyText
+  size: 9.99
+  abv: 9.99
+  brewery: MyString
+  style: MyString
+
+two:
+  name: MyString
+  info_url: MyString
+  price: 9.99
+  stores: MyText
+  size: 9.99
+  abv: 9.99
+  brewery: MyString
+  style: MyString

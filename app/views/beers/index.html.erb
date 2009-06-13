@@ -1,0 +1,17 @@
+<h1>Listing beers</h1>
+
+<table>
+
+<%= render :partial => "beer_head" %>
+
+<%= render :partial => @beers %>
+
+</table>
+
+<br />
+
+<%= link_to 'New beer', new_beer_path %>
+
+<br />
+
+<%= link_to 'Home', :controller => :home %>

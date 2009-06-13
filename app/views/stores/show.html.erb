@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @store.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @store.address %>
+</p>
+
+<p>
+  <b>Info url:</b>
+  <%=h @store.info_url %>
+</p>
+
+<p>
+  <b>Kind:</b>
+  <%=h @store.kind %>
+</p>
+
+<p>
+  <% if @beers.size > 0 then %>
+    <b>Beers:</b>
+  
+    <table>
+      
+      <%= render :partial => "beers/beer_head" %>
+    
+      <%= render :partial => @beers %>
+
+    </table>
+  <% else %>
+    <b>No Beers</b>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %>

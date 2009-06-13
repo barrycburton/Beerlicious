@@ -1,0 +1,12 @@
+<h1>Find the Hops</h1>
+<p>where's the beer?</p>
+<p>
+  <% form_tag(search_path, :method => "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</p>
+<p><%= link_to "Browse All Beers", beers_path %></p>
+<p><%= link_to "Browse All Breweries", breweries_path %></p>
+<p><%= link_to "Browse All Stores", stores_path %></p>

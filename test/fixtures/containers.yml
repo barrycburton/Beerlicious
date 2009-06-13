@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  volume: 9.99
+  count: 9.99
+  price: 9.99
+  beer: 
+  store: 
+
+two:
+  volume: 9.99
+  count: 9.99
+  price: 9.99
+  beer: 
+  store: 

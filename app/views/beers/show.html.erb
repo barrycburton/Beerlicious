@@ -1,0 +1,44 @@
+<p>
+  <b>Name:</b>
+  <%=h @beer.name %>
+</p>
+
+<p>
+  <b>Brewery:</b>
+  <%=link_to h(@beer.brewery.name), brewery_path(@beer.brewery) %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%=h @beer.style %>
+</p>
+
+<p>
+  <b>Abv:</b>
+  <%=h @beer.abv %>
+</p>
+
+<p>
+  <b>Info url:</b>
+  <%=h @beer.info_url %>
+</p>
+
+<p>
+  <% if @containers.size > 0 then %>
+    <b>Available at:</b>
+  
+    <table>
+
+      <%= render :partial => "containers/container_head" %>
+    
+      <%= render :partial => @containers %>
+
+    </table>
+  <% else %>
+    <b>Not available yet.</b>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_beer_path(@beer) %> |
+<%= link_to 'Back', beers_path %>

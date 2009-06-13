@@ -1,0 +1,54 @@
+<% @beer.containers.build if @beer.containers.empty? %>
+<% form_for(@beer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :brewery %><br />
+    <%= f.collection_select :brewery_id, Brewery.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :style %><br />
+    <%= f.text_field :style %>
+  </p>
+  <p>
+    <%= f.label :abv %><br />
+    <%= f.text_field :abv %>
+  </p>
+  <p>
+    <%= f.label :info_url %><br />
+    <%= f.text_field :info_url %>
+  </p>
+  
+  <% f.fields_for :containers do |cf| %>
+    <p>
+      <%= cf.label :volume, 'Container Size' %><br />
+      <%= cf.text_field :volume %>
+    </p>
+    <p>
+      <%= cf.label :count, 'Number of Containers' %><br />
+      <%= cf.text_field :count %>
+    </p>
+    <p>
+      <%= cf.label :price %><br />
+      <%=cf.text_field :price %>
+    </p>
+    <p>
+      <%= cf.label :stores %><br />
+      <%= cf.collection_select :store_id, Store.all, :id, :name %>
+    </p>
+    <% unless cf.object.nil? || cf.object.new_record? %>
+      <p>
+        <%= cf.label :_delete, 'Remove:' %>
+        <%= cf.check_box :_delete %>
+      </p>
+    <% end %>
+  <% end %>
+  
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>

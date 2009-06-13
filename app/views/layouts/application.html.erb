@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+
+	<meta name="viewport" content="width=700, initial-scale=0.45, minimum-scale=0.45" />
+
+	<link rel="shortcut icon" href="/favicon.ico" />
+	
+	<%= stylesheet_link_tag 'scaffold' %>
+
+	<title>Find the Hops: <%= controller.action_name %></title>
+	
+</head>
+<body>
+  
+  <% if flash[:notice] then %>
+    <p style="color: green"><%= flash[:notice] %></p>
+  <% end %>
+
+  <%= yield %>
+
+</body>
+</html>

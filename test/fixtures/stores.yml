@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  info_url: MyString
+  address: MyString
+  geo_loc: MyString
+  type: MyString
+  container: 
+  beer: 
+
+two:
+  name: MyString
+  info_url: MyString
+  address: MyString
+  geo_loc: MyString
+  type: MyString
+  container: 
+  beer: 

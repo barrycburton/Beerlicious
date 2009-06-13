@@ -1,0 +1,17 @@
+<h1>Listing stores</h1>
+
+<table>
+
+<%= render :partial => "store_head" %>
+  
+<%= render :partial => @stores %>
+
+</table>
+
+<br />
+
+<%= link_to 'New store', new_store_path %>
+
+<br />
+
+<%= link_to 'Home', :controller => :home %>

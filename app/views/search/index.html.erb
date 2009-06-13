@@ -1,0 +1,13 @@
+<h1>Search Results</h1>
+
+<table>
+
+<%= render :partial => "beers/beer_head" %>
+
+<%= render :partial => "beers/beer", :collection => @beers  %>
+
+</table>
+
+<br />
+
+<%= link_to 'Home', :controller => :home %>
