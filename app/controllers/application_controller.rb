@@ -7,17 +7,20 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
   
+  # Canonical URLs
+  before_filter :canonical_domain
+  
   # Lockdown whole app
   before_filter :login_required, :except => [ 'login' ]
-  
-  # Canonical URLs
-  if ENV['CANONICAL_DOMAIN'] then
-    before_filter :canonical_domain
-  end
 
   def canonical_domain
-    if request.env['HTTP_HOST'] != ENV['CANONICAL_DOMAIN']
-      redirect_to ENV['CANONICAL_DOMAIN']
+    if ENV['CANONICAL_DOMAIN'] and request.host != ENV['CANONICAL_DOMAIN'] then
+      if request.query_string.length > 0 then
+        query = '?' + request.query_string
+      else
+        query = ''
+      end
+      redirect_to request.protocol + ENV['CANONICAL_DOMAIN'] + request.port_string + request.path + query
     end
   end
   
