@@ -1,6 +1,4 @@
-*.sqlite3
-*.tmproj
-*.DS_Store
+db/*.sqlite3
 log/*.log
 tmp/**/*
 doc/api
