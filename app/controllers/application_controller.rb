@@ -10,6 +10,17 @@ class ApplicationController < ActionController::Base
   # Lockdown whole app
   before_filter :login_required, :except => [ 'login' ]
   
+  # Canonical URLs
+  if ENV['CANONICAL_DOMAIN'] then
+    before_filter :canonical_domain
+  end
+
+  def canonical_domain
+    if request.env['HTTP_HOST'] != ENV['CANONICAL_DOMAIN']
+      redirect_to ENV['CANONICAL_DOMAIN']
+    end
+  end
+  
   def login_required
     if session[:user]
       return true
