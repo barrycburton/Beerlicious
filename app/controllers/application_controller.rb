@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   # Lockdown whole app
   before_filter :login_required, :except => [ 'login' ]
   
+private
+
   def login_required
     if session[:user]
       return true
