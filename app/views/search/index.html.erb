@@ -1,12 +1,18 @@
 <h1>Search Results</h1>
 
-<table>
+<%= render :partial => "form" %>
 
-<%= render :partial => "beers/beer_head" %>
+<% if @beers.size > 0 then %>
+  <table>
 
-<%= render :partial => "beers/beer", :collection => @beers  %>
+  <%= render :partial => "beers/beer_head" %>
 
-</table>
+  <%= render :partial => "beers/beer", :collection => @beers  %>
+
+  </table>
+<% else %>
+  <p><b>No Results</b></p>
+<% end %>
 
 <br />
 

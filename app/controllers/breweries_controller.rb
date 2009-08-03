@@ -12,6 +12,7 @@ class BreweriesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @breweries }
+      format.json { render :json => @breweries }
     end
   end
 
@@ -22,6 +23,7 @@ class BreweriesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @brewery }
+      format.json { render :json => @brewery }
     end
   end
 
@@ -33,6 +35,7 @@ class BreweriesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @brewery }
+      format.json { render :json => @brewery }
     end
   end
 
@@ -51,9 +54,11 @@ class BreweriesController < ApplicationController
         flash[:notice] = 'Brewery was successfully created.'
         format.html { redirect_to(@brewery) }
         format.xml  { render :xml => @brewery, :status => :created, :location => @brewery }
+        format.json { render :json => @brewery, :status => :created, :location => @brewery }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @brewery.errors, :status => :unprocessable_entity }
+        format.json { render :json => @brewery.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -67,9 +72,11 @@ class BreweriesController < ApplicationController
         flash[:notice] = 'Brewery was successfully updated.'
         format.html { redirect_to(@brewery) }
         format.xml  { head :ok }
+        format.json { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @brewery.errors, :status => :unprocessable_entity }
+        format.json { render :json => @brewery.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -83,6 +90,7 @@ class BreweriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(breweries_url) }
       format.xml  { head :ok }
+      format.json { head :ok }
     end
   end
   

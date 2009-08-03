@@ -12,6 +12,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @stores }
+      format.json { render :json => @stores }
     end
   end
 
@@ -22,6 +23,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @store }
+      format.json { render :json => @store }
     end
   end
 
@@ -34,6 +36,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @store }
+      format.json { render :json => @store }
     end
   end
 
@@ -54,9 +57,11 @@ class StoresController < ApplicationController
         flash[:notice] = 'Store was successfully created.'
         format.html { redirect_to(@store) }
         format.xml  { render :xml => @store, :status => :created, :location => @store }
+        format.json { render :json => @store, :status => :created, :location => @store }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @store.errors, :status => :unprocessable_entity }
+        format.json { render :json => @store.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -70,9 +75,11 @@ class StoresController < ApplicationController
         flash[:notice] = 'Store was successfully updated.'
         format.html { redirect_to(@store) }
         format.xml  { head :ok }
+        format.json { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @store.errors, :status => :unprocessable_entity }
+        format.json { render :json => @store.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -86,6 +93,7 @@ class StoresController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(stores_url) }
       format.xml  { head :ok }
+      format.json { head :ok }
     end
   end
 

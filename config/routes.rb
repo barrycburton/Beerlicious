@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :stores
   
   map.root :controller => 'home'
+  map.searchformat 'search.:format', :controller => 'search'
   map.search 'search', :controller => 'search'
   map.users 'users/:action', :controller => 'users'
   

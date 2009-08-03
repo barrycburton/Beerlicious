@@ -12,6 +12,7 @@ class BeersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @beers }
+      format.json { render :json => @beers }
     end
   end
 
@@ -22,6 +23,7 @@ class BeersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @beer }
+      format.json { render :json => @beer }
     end
   end
 
@@ -33,6 +35,7 @@ class BeersController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @beer }
+      format.json { render :json => @beer }
     end
   end
 
@@ -51,9 +54,11 @@ class BeersController < ApplicationController
         flash[:notice] = 'Beer was successfully created.'
         format.html { redirect_to(@beer) }
         format.xml  { render :xml => @beer, :status => :created, :location => @beer }
+        format.json { render :json => @beer, :status => :created, :location => @beer }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @beer.errors, :status => :unprocessable_entity }
+        format.json { render :json => @beer.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -67,9 +72,11 @@ class BeersController < ApplicationController
         flash[:notice] = 'Beer was successfully updated.'
         format.html { redirect_to(@beer) }
         format.xml  { head :ok }
+        format.json { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @beer.errors, :status => :unprocessable_entity }
+        format.json { render :json => @beer.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -83,6 +90,7 @@ class BeersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(beers_url) }
       format.xml  { head :ok }
+      format.json { head :ok }
     end
   end
   
